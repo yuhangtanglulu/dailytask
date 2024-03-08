@@ -16,7 +16,7 @@ async function main() {
     const rpcUrls = rpcData.split('\n').filter(line => line.trim());
 
     // 定义你想要生成地址的数量，建议rpc越多地址越多，最好是rpc数量*100
-    const addressCount = 100; 
+    const addressCount = 1000000; 
 
     for (let i = 0; i < addressCount; i++) {
         const mnemonic = ethers.Wallet.createRandom().mnemonic.phrase;
@@ -42,7 +42,7 @@ async function fetchWithProxy(url, body, proxyUrl) {
         method: 'POST',
         body: JSON.stringify(body),
         headers: { 'Content-Type': 'application/json' },
-        agent: agent
+        // agent: agent
     });
 
     if (!response.ok) {
